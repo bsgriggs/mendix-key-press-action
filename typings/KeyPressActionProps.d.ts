@@ -11,15 +11,15 @@ export type WatchModeEnum = "DOCUMENT" | "CONTENT";
 export type SecondaryKeyEnum = "SHIFT" | "CTRL" | "ALT" | "META";
 
 export interface WatchListType {
-    keyCombination: boolean;
     keyName: string;
+    keyCombination: boolean;
     secondaryKey: SecondaryKeyEnum;
     keyAction?: ActionValue;
 }
 
 export interface WatchListPreviewType {
-    keyCombination: boolean;
     keyName: string;
+    keyCombination: boolean;
     secondaryKey: SecondaryKeyEnum;
     keyAction: {} | null;
 }

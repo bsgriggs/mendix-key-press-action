@@ -10,10 +10,10 @@
         <propertyGroup caption="General">
             <property key="watchMode" type="enumeration" defaultValue="DOCUMENT">
                 <caption>Watch mode</caption>
-                <description></description>
+                <description>Which container should the widget watch for key presses?</description>
                 <enumerationValues>
                     <enumerationValue key="DOCUMENT">Whole Document</enumerationValue>
-                    <enumerationValue key="CONTENT">Content</enumerationValue>
+                    <enumerationValue key="CONTENT">Specific Content</enumerationValue>
                 </enumerationValues>
             </property>
             <property key="debug" type="boolean" defaultValue="true">
@@ -22,24 +22,24 @@
             </property>
             <property key="content" type="widgets">
                 <caption>Content</caption>
-                <description></description>
+                <description>The content in this area will be watched for key presses</description>
             </property>
             <property key="watchList" type="object" required="false" isList="true">
                 <caption>Key watch list</caption>
-                <description></description>
+                <description>List of keys being watched</description>
                 <properties>
                     <propertyGroup caption="KeyEvent">
-                        <property key="keyCombination" type="boolean" defaultValue="false">
-                            <caption>Key combination?</caption>
-                            <description></description>
-                        </property>
                         <property key="keyName" type="string" required="true">
                             <caption>Key name</caption>
                             <description>Qualified key name from https://www.w3.org/TR/uievents-key/#named-key-attribute-values</description>
                         </property>
+                        <property key="keyCombination" type="boolean" defaultValue="false">
+                            <caption>Key combination?</caption>
+                            <description>Should this event be ran only when multiple keys are pressed?</description>
+                        </property>
                         <property key="secondaryKey" type="enumeration" defaultValue="SHIFT">
                             <caption>Secondary key</caption>
-                            <description></description>
+                            <description>The system key to be used in combination with the key name</description>
                             <enumerationValues>
                                 <enumerationValue key="SHIFT">Shift</enumerationValue>
                                 <enumerationValue key="CTRL">Ctrl</enumerationValue>
@@ -49,7 +49,7 @@
                         </property>
                         <property key="keyAction" type="action" required="true">
                             <caption>Key action</caption>
-                            <description></description>
+                            <description>Mendix action executed when this key or key combination is detected</description>
                         </property>
                     </propertyGroup>
                 </properties>
