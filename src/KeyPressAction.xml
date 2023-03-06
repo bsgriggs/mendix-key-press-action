@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="mendix.keypressaction.KeyPressAction" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Key Press Action</name>
+    <description>Configure a mx action on specific key presses</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="watchMode" type="enumeration" defaultValue="DOCUMENT">
+                <caption>Watch mode</caption>
+                <description></description>
+                <enumerationValues>
+                    <enumerationValue key="DOCUMENT">Whole Document</enumerationValue>
+                    <enumerationValue key="CONTENT">Content</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="debug" type="boolean" defaultValue="true">
+                <caption>Debug mode?</caption>
+                <description>DISABLE PRIOR TO DEPLOYMENT, logs key outputs to browser console.</description>
+            </property>
+            <property key="content" type="widgets">
+                <caption>Content</caption>
+                <description></description>
+            </property>
+            <property key="watchList" type="object" required="false" isList="true">
+                <caption>Key watch list</caption>
+                <description></description>
+                <properties>
+                    <propertyGroup caption="KeyEvent">
+                        <property key="keyCombination" type="boolean" defaultValue="false">
+                            <caption>Key combination?</caption>
+                            <description></description>
+                        </property>
+                        <property key="keyName" type="string" required="true">
+                            <caption>Key name</caption>
+                            <description>Qualified key name from https://www.w3.org/TR/uievents-key/#named-key-attribute-values</description>
+                        </property>
+                        <property key="secondaryKey" type="enumeration" defaultValue="SHIFT">
+                            <caption>Secondary key</caption>
+                            <description></description>
+                            <enumerationValues>
+                                <enumerationValue key="SHIFT">Shift</enumerationValue>
+                                <enumerationValue key="CTRL">Ctrl</enumerationValue>
+                                <enumerationValue key="ALT">Alt</enumerationValue>
+                                <enumerationValue key="META">Meta (Command / Windows)</enumerationValue>
+                            </enumerationValues>
+                        </property>
+                        <property key="keyAction" type="action" required="true">
+                            <caption>Key action</caption>
+                            <description></description>
+                        </property>
+                    </propertyGroup>
+                </properties>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>
