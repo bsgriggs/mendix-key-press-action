@@ -21,6 +21,7 @@ Configure a mx action on specific key presses
 6. Add a Microflow or Nanoflow to execute when the key is detected
 
 ## Example - Excel-like list navigation
+![demo](https://github.com/bsgriggs/mendix-key-press-action/blob/media/demo.gif)  
 *Requires the Web Actions module on the marketplace*
 1. You will need to have a domain model with of the following features:
    - An object that is the root of the data structure
