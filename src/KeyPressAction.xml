@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
     <name>Key Press Action</name>
     <description>Configure a mx action on specific key presses</description>
-    <icon/>
+    <helpUrl>https://github.com/bsgriggs/mendix-key-press-action/blob/master/README.md</helpUrl>
     <properties>
         <propertyGroup caption="General">
             <property key="watchMode" type="enumeration" defaultValue="DOCUMENT">
