@@ -9,16 +9,16 @@ Configure a mx action on specific key presses
 
 
 ## Limitations
-- The widget's functionality is intentionally light with the expectation that the Mendix developer configures the functionality inside the Microflow / Nanoflow of the key action.
+- The widget's functionality is intentionally bare-bones with the expectation that the Mendix developer configures the functionality inside the Microflow / Nanoflow of the key action.
 
 ## Usage
 ![general](https://github.com/bsgriggs/mendix-key-press-action/blob/media/general.png)  
 1. Add the widget to your page and determine whether you want to watch the whole document or only a specific section of your page. If you need to have your action use specific objects, then use Watch mode "Specific Content"
 ![keyEvent](https://github.com/bsgriggs/mendix-key-press-action/blob/media/keyEvent.png)  
-3. Add a new item to the Key watch list
-4. Add the [qualified name of the key](https://www.w3.org/TR/uievents-key/#named-key-attribute-values) in the Key name
-5. If you need this key action to only run when multiple keys are pressed, enable key combination then select with secondary system key to watch
-6. Add a Microflow or Nanoflow to execute when the key is detected
+2. Add a new item to the Key watch list
+3. Add the [qualified name of the key](https://www.w3.org/TR/uievents-key/#named-key-attribute-values) in the Key name
+4. If you need this key action to only run when multiple keys are pressed, enable key combination then select with secondary system key to watch
+5. Add a Microflow or Nanoflow to execute when the key is detected
 
 ## Example - Excel-like list navigation
 ![demo](https://github.com/bsgriggs/mendix-key-press-action/blob/media/demo.gif)  
@@ -36,11 +36,11 @@ Configure a mx action on specific key presses
    - A **Nanoflow** for each key (i.e. ACT_Row_KeyUp, ACT_Row_KeyRight) 
 7. In ACT_Row_KeyDown, add logic to determine if the current row is the last row (by SequenceNr). If the current row is not the highest row, do a while loop that runs the Focus Next action for the number of items in a row (9 in the example image).  
 ![ACT_Row_KeyDown](https://github.com/bsgriggs/mendix-key-press-action/blob/media/ACT_Row_KeyDown.png) 
-9. In ACT_Row_KeyUp, copy the the logic in ACT_Row_KeyDown. Change the sort action to look for the lowest row and make sure the current row is not the lowest row. Change Focus Next to Focus Previous.
-10. Create a new java script action called "JSA_ActiveElementContainsClassName" with the following settings:
+8. In ACT_Row_KeyUp, copy the the logic in ACT_Row_KeyDown. Change the sort action to look for the lowest row and make sure the current row is not the lowest row. Change Focus Next to Focus Previous.
+9. Create a new java script action called "JSA_ActiveElementContainsClassName" with the following settings:
    - add a string parameter called "ClassName"
    - set the return value to a boolean
-11. Paste the following code into the java script action
+10. Paste the following code into the java script action
 ```
 if (className.trim() !== ""){
 	const activeElement = document.activeElement;
@@ -50,15 +50,15 @@ if (className.trim() !== ""){
 } 
 return false;
 ```
-12. Inside your list view content, add the class name 'col-first' to the first textbox in the row. Add 'col-last' to the last textbox or button in the row.
-13. In ACT_Row_KeyRight, add JSA_ActiveElementContainsClassName and give it '.col-last'. If the java script action returns true, do nothing. If the java script action returns false, run Focus Next.
+11. Inside your list view content, add the class name 'col-first' to the first textbox in the row. Add 'col-last' to the last textbox or button in the row.
+12. In ACT_Row_KeyRight, add JSA_ActiveElementContainsClassName and give it '.col-last'. If the java script action returns true, do nothing. If the java script action returns false, run Focus Next.
 ![ACT_Row_KeyRight](https://github.com/bsgriggs/mendix-key-press-action/blob/media/ACT_Row_KeyRight.png)  
-14. In ACT_Row_KeyLeft, add JSA_ActiveElementContainsClassName and pass it '.col-first'. If the java script action returns true, do nothing. If the java script action returns false, run Focus Previous.
-15. Run the project and click on your first text box, you should now be able to navigate the list view with the arrow keys
+13. In ACT_Row_KeyLeft, add JSA_ActiveElementContainsClassName and pass it '.col-first'. If the java script action returns true, do nothing. If the java script action returns false, run Focus Previous.
+14. Run the project and click on your first text box, you should now be able to navigate the list view with the arrow keys
 
 ## Demo project
 
-https://widgettesting105-sandbox.mxapps.io/p/key-press-watcher
+https://widgettesting105-sandbox.mxapps.io/p/key-press-action
 
 ## Issues, suggestions and feature requests
 
