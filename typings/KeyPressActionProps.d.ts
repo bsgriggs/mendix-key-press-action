@@ -8,6 +8,8 @@ import { ActionValue } from "mendix";
 
 export type WatchModeEnum = "DOCUMENT" | "CONTENT";
 
+export type KeyModeEnum = "DOWN" | "UP";
+
 export type SecondaryKeyEnum = "SHIFT" | "CTRL" | "ALT" | "META";
 
 export interface WatchListType {
@@ -32,6 +34,7 @@ export interface KeyPressActionContainerProps {
     watchMode: WatchModeEnum;
     debug: boolean;
     content: ReactNode;
+    keyMode: KeyModeEnum;
     watchList: WatchListType[];
 }
 
@@ -47,5 +50,6 @@ export interface KeyPressActionPreviewProps {
     watchMode: WatchModeEnum;
     debug: boolean;
     content: { widgetCount: number; renderer: ComponentType<{ caption?: string }> };
+    keyMode: KeyModeEnum;
     watchList: WatchListPreviewType[];
 }

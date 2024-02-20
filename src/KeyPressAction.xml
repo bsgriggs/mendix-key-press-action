@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget id="mendix.keypressaction.KeyPressAction" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
-        supportedPlatform="Web"
-        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+<widget id="mendix.keypressaction.KeyPressAction" pluginWidget="true" needsEntityContext="true"
+    offlineCapable="true"
+    supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
     <name>Key Press Action</name>
     <description>Configure a mx action on specific key presses</description>
     <helpUrl>https://github.com/bsgriggs/mendix-key-press-action/blob/master/README.md</helpUrl>
@@ -23,6 +24,14 @@
             <property key="content" type="widgets">
                 <caption>Content</caption>
                 <description>The content in this area will be watched for key presses</description>
+            </property>
+            <property key="keyMode" type="enumeration" defaultValue="DOWN">
+                <caption>Key mode</caption>
+                <description>Trigger the event when the key is pressed or released</description>
+                <enumerationValues>
+                    <enumerationValue key="DOWN">Down</enumerationValue>
+                    <enumerationValue key="UP">Up</enumerationValue>
+                </enumerationValues>
             </property>
             <property key="watchList" type="object" required="false" isList="true">
                 <caption>Key watch list</caption>

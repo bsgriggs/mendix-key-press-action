@@ -72,7 +72,8 @@ const KeyPressAction = ({
     watchList,
     style,
     watchMode,
-    debug
+    debug,
+    keyMode
 }: KeyPressActionContainerProps): ReactElement => {
     const [eventMetaData, setEventMetaData] = useState<IEventMetaData>({
         hasCombination: false,
@@ -106,14 +107,26 @@ const KeyPressAction = ({
             if (keyEventList.length > 0) {
                 // eslint-disable-next-line no-unused-expressions
                 debug && console.info("keyPressAction useEffect", keyEventList);
-                document.addEventListener("keydown", event =>
-                    handleKeyPress(event, keyEventList, debug, eventMetaData)
-                );
+                if (keyMode === "DOWN") {
+                    document.addEventListener("keydown", event =>
+                        handleKeyPress(event, keyEventList, debug, eventMetaData)
+                    );
+                } else {
+                    document.addEventListener("keyup", event =>
+                        handleKeyPress(event, keyEventList, debug, eventMetaData)
+                    );
+                }
             }
             return () => {
-                document.removeEventListener("keydown", event =>
-                    handleKeyPress(event, keyEventList, debug, eventMetaData)
-                );
+                if (keyMode === "DOWN") {
+                    document.removeEventListener("keydown", event =>
+                        handleKeyPress(event, keyEventList, debug, eventMetaData)
+                    );
+                } else {
+                    document.removeEventListener("keyup", event =>
+                        handleKeyPress(event, keyEventList, debug, eventMetaData)
+                    );
+                }
             };
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [keyEventList]);
@@ -125,8 +138,13 @@ const KeyPressAction = ({
                 id={name}
                 className={classNames("key-press-action", className)}
                 style={style}
+                onKeyDown={
+                    keyEventList.length > 0 && keyMode === "DOWN"
+                        ? event => handleKeyPress(event as unknown as KeyboardEvent, keyEventList, debug, eventMetaData)
+                        : undefined
+                }
                 onKeyUp={
-                    keyEventList.length > 0
+                    keyEventList.length > 0 && keyMode === "UP"
                         ? event => handleKeyPress(event as unknown as KeyboardEvent, keyEventList, debug, eventMetaData)
                         : undefined
                 }
