@@ -125,7 +125,7 @@ const KeyPressAction = ({
                 id={name}
                 className={classNames("key-press-action", className)}
                 style={style}
-                onKeyDown={
+                onKeyUp={
                     keyEventList.length > 0
                         ? event => handleKeyPress(event as unknown as KeyboardEvent, keyEventList, debug, eventMetaData)
                         : undefined
