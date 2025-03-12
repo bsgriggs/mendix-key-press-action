@@ -138,7 +138,8 @@ export function check(_values: KeyPressActionPreviewProps): Problem[] {
     if (!_values.watchList.every(keyEvent => keyEvent.keyAction !== null)) {
         errors.push({
             property: "watchList",
-            message: "All key events mush have a key action"
+            message: "All key events mush have a key action",
+            url: "https://github.com/bsgriggs/mendix-key-press-action/blob/master/README.md"
         });
     }
     return errors;

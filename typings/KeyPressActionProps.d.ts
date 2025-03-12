@@ -4,7 +4,7 @@
  * @author Mendix Widgets Framework Team
  */
 import { ComponentType, CSSProperties, ReactNode } from "react";
-import { ActionValue } from "mendix";
+import { ActionValue, DynamicValue } from "mendix";
 
 export type WatchModeEnum = "DOCUMENT" | "CONTENT";
 
@@ -35,6 +35,7 @@ export interface KeyPressActionContainerProps {
     debug: boolean;
     content: ReactNode;
     keyMode: KeyModeEnum;
+    allowKeyHold: DynamicValue<boolean>;
     watchList: WatchListType[];
 }
 
@@ -49,7 +50,8 @@ export interface KeyPressActionPreviewProps {
     readOnly: boolean;
     watchMode: WatchModeEnum;
     debug: boolean;
-    content: { widgetCount: number; renderer: ComponentType<{ caption?: string }> };
+    content: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
     keyMode: KeyModeEnum;
+    allowKeyHold: string;
     watchList: WatchListPreviewType[];
 }

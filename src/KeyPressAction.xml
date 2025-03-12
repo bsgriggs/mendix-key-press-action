@@ -9,60 +9,70 @@
     <helpUrl>https://github.com/bsgriggs/mendix-key-press-action/blob/master/README.md</helpUrl>
     <properties>
         <propertyGroup caption="General">
-            <property key="watchMode" type="enumeration" defaultValue="DOCUMENT">
-                <caption>Watch mode</caption>
-                <description>Which container should the widget watch for key presses?</description>
-                <enumerationValues>
-                    <enumerationValue key="DOCUMENT">Whole Document</enumerationValue>
-                    <enumerationValue key="CONTENT">Specific Content</enumerationValue>
-                </enumerationValues>
-            </property>
-            <property key="debug" type="boolean" defaultValue="true">
-                <caption>Debug mode?</caption>
-                <description>DISABLE PRIOR TO DEPLOYMENT, logs key outputs to browser console.</description>
-            </property>
-            <property key="content" type="widgets">
-                <caption>Content</caption>
-                <description>The content in this area will be watched for key presses</description>
-            </property>
-            <property key="keyMode" type="enumeration" defaultValue="DOWN">
-                <caption>Key mode</caption>
-                <description>Trigger the event when the key is pressed or released</description>
-                <enumerationValues>
-                    <enumerationValue key="DOWN">Down</enumerationValue>
-                    <enumerationValue key="UP">Up</enumerationValue>
-                </enumerationValues>
-            </property>
-            <property key="watchList" type="object" required="false" isList="true">
-                <caption>Key watch list</caption>
-                <description>List of keys being watched</description>
-                <properties>
-                    <propertyGroup caption="KeyEvent">
-                        <property key="keyName" type="string" required="true">
-                            <caption>Key name</caption>
-                            <description>Qualified key name from https://www.w3.org/TR/uievents-key/#named-key-attribute-values</description>
-                        </property>
-                        <property key="keyCombination" type="boolean" defaultValue="false">
-                            <caption>Key combination?</caption>
-                            <description>Should this event be ran only when multiple keys are pressed?</description>
-                        </property>
-                        <property key="secondaryKey" type="enumeration" defaultValue="SHIFT">
-                            <caption>Secondary key</caption>
-                            <description>The system key to be used in combination with the key name</description>
-                            <enumerationValues>
-                                <enumerationValue key="SHIFT">Shift</enumerationValue>
-                                <enumerationValue key="CTRL">Ctrl</enumerationValue>
-                                <enumerationValue key="ALT">Alt</enumerationValue>
-                                <enumerationValue key="META">Meta (Command / Windows)</enumerationValue>
-                            </enumerationValues>
-                        </property>
-                        <property key="keyAction" type="action" required="true">
-                            <caption>Key action</caption>
-                            <description>Mendix action executed when this key or key combination is detected</description>
-                        </property>
-                    </propertyGroup>
-                </properties>
-            </property>
+            <propertyGroup caption="General">
+                <property key="watchMode" type="enumeration" defaultValue="DOCUMENT">
+                    <caption>Watch mode</caption>
+                    <description>Which container should the widget watch for key presses?</description>
+                    <enumerationValues>
+                        <enumerationValue key="DOCUMENT">Whole Document</enumerationValue>
+                        <enumerationValue key="CONTENT">Specific Content</enumerationValue>
+                    </enumerationValues>
+                </property>
+                <property key="debug" type="boolean" defaultValue="true">
+                    <caption>Debug mode?</caption>
+                    <description>DISABLE PRIOR TO DEPLOYMENT, logs key outputs to browser console.</description>
+                </property>
+                <property key="content" type="widgets">
+                    <caption>Content</caption>
+                    <description>The content in this area will be watched for key presses</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Keys">
+                <property key="keyMode" type="enumeration" defaultValue="DOWN">
+                    <caption>Key mode</caption>
+                    <description>Trigger the event when the key is pressed or released</description>
+                    <enumerationValues>
+                        <enumerationValue key="DOWN">Down</enumerationValue>
+                        <enumerationValue key="UP">Up</enumerationValue>
+                    </enumerationValues>
+                </property>
+                <property key="allowKeyHold" type="expression" defaultValue="false">
+                    <caption>Allow key holding</caption>
+                    <description>When true, holding the key will repeatedly fire the event. 
+When false, the event will only fire the first time the key is pressed down/up.</description>
+                    <returnType type="Boolean" />
+                </property>
+                <property key="watchList" type="object" required="false" isList="true">
+                    <caption>Key watch list</caption>
+                    <description>List of keys being watched</description>
+                    <properties>
+                        <propertyGroup caption="KeyEvent">
+                            <property key="keyName" type="string" required="true">
+                                <caption>Key name</caption>
+                                <description>Qualified key name from https://www.w3.org/TR/uievents-key/#named-key-attribute-values</description>
+                            </property>
+                            <property key="keyCombination" type="boolean" defaultValue="false">
+                                <caption>Key combination?</caption>
+                                <description>Should this event be ran only when multiple keys are pressed?</description>
+                            </property>
+                            <property key="secondaryKey" type="enumeration" defaultValue="SHIFT">
+                                <caption>Secondary key</caption>
+                                <description>The system key to be used in combination with the key name</description>
+                                <enumerationValues>
+                                    <enumerationValue key="SHIFT">Shift</enumerationValue>
+                                    <enumerationValue key="CTRL">Ctrl</enumerationValue>
+                                    <enumerationValue key="ALT">Alt</enumerationValue>
+                                    <enumerationValue key="META">Meta (Command / Windows)</enumerationValue>
+                                </enumerationValues>
+                            </property>
+                            <property key="keyAction" type="action" required="true">
+                                <caption>Key action</caption>
+                                <description>Mendix action executed when this key or key combination is detected</description>
+                            </property>
+                        </propertyGroup>
+                    </properties>
+                </property>
+            </propertyGroup>
         </propertyGroup>
     </properties>
 </widget>
