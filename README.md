@@ -1,12 +1,12 @@
 ## Key Press Action
-Configure a mx action on specific key presses
+Configure an Mx Action on specific key presses. Useful for keyboard shortcuts and custom events.
 
 ## Features
 - Supports multi-key operations with Shift, Alt, Ctrl, and Meta (Mac command & Windows key)
 - Watch either the whole document or a specific container
 - Configure a list of key actions to be executed
-- Uses the [qualified name of a key](https://www.w3.org/TR/uievents-key/#named-key-attribute-values) instead of the number
-
+- Option to allow/prevent holding the key from triggering the event multiple times
+- Uses the [qualified name of a key](https://www.w3.org/TR/uievents-key/#named-key-attribute-values) instead of the number for easier readability
 
 ## Limitations
 - The widget's functionality is intentionally bare-bones with the expectation that the Mendix developer adds the functionality inside the Microflow / Nanoflow of the key action.
