@@ -14,7 +14,6 @@ const ContentWatcher = (props: KeyPressActionContainerProps): ReactElement => {
         debug: boolean,
         eventMetaData: IEventMetaData
     ): void {
-        event.preventDefault();
         if (event.repeat && props.allowKeyHold.value === false) {
             DebugLog(debug, `already running, skipping`);
             return;

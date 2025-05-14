@@ -9,7 +9,6 @@ const DocumentWatcher = (props: KeyPressActionContainerProps): ReactElement => {
 
     useEffect(() => {
         function handleKeyPress(event: KeyboardEvent): void {
-            event.preventDefault();
             if (event.repeat && props.allowKeyHold.value === false) {
                 DebugLog(props.debug, `already running, skipping`);
                 return;
