@@ -116,6 +116,7 @@ export function getProperties(
     _values.watchList.forEach((keyEvent, index) => {
         if (!keyEvent.keyCombination) {
             hideNestedPropertiesIn(defaultProperties, _values, "watchList", index, ["secondaryKey"]);
+            hideNestedPropertiesIn(defaultProperties, _values, "watchList", index, ["preventDefault"]);
         }
     });
 

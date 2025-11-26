@@ -47,6 +47,11 @@ const DocumentWatcher = (props: KeyPressActionContainerProps): ReactElement => {
             }
 
             if (keyEvent && keyEvent.keyAction && keyEvent.keyAction.canExecute) {
+
+                if (keyEvent.preventDefault && keyEvent.keyCombination) {
+                    event.preventDefault();
+                }
+
                 DebugLog(props.debug, "keyEvent found: ", keyEvent);
                 keyEvent.keyAction.execute();
             }

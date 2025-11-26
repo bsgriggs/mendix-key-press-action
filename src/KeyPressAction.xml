@@ -65,6 +65,10 @@ When false, the event will only fire the first time the key is pressed down/up.<
                                     <enumerationValue key="META">Meta (Command / Windows)</enumerationValue>
                                 </enumerationValues>
                             </property>
+                            <property key="preventDefault" type="boolean" defaultValue="false">
+                                <caption>Prevent Default Behavior?</caption>
+                                <description>Should this event prevent default behavior, such as to override default browser CTRL+S behavior?</description>
+                            </property>
                             <property key="keyAction" type="action" required="true">
                                 <caption>Key action</caption>
                                 <description>Mendix action executed when this key or key combination is detected</description>
