@@ -52,6 +52,10 @@ const ContentWatcher = (props: KeyPressActionContainerProps): ReactElement => {
         }
 
         if (keyEvent && keyEvent.keyAction && keyEvent.keyAction.canExecute) {
+            if (keyEvent.preventDefault.value === true) {
+                DebugLog(debug, "preventing default");
+                event.preventDefault();
+            }
             DebugLog(debug, "keyEvent found: ", keyEvent);
             keyEvent.keyAction.execute();
         }

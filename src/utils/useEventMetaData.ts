@@ -1,12 +1,19 @@
 import { useMemo } from "react";
+import { ValueStatus } from "mendix";
 import { WatchListType } from "../../typings/KeyPressActionProps";
 import IEventMetaData from "../../typings/EventMetaData";
-import { DebugLog, Log, LOG_NODE } from "./Logger";
+import { DebugLog } from "./Logger";
 
 export default function useEventMetaData(watchList: WatchListType[], debug: boolean): IEventMetaData {
     return useMemo(() => {
         DebugLog(debug, "useEventMetaData processing", watchList);
-        if (watchList.every(keyEvent => keyEvent.keyAction?.canExecute)) {
+        if (
+            watchList.every(
+                keyEvent =>
+                    keyEvent.preventDefault?.status === ValueStatus.Available &&
+                    watchList.every(keyEvent => keyEvent.keyAction?.canExecute)
+            )
+        ) {
             return {
                 hasCombination: watchList.findIndex(keyEvent => keyEvent.keyCombination) !== -1,
                 hasAlt:
@@ -18,9 +25,8 @@ export default function useEventMetaData(watchList: WatchListType[], debug: bool
                 hasShift:
                     watchList.findIndex(keyEvent => keyEvent.keyCombination && keyEvent.secondaryKey === "SHIFT") !== -1
             } as IEventMetaData;
-        } else {
-            Log(LOG_NODE.ERROR, "User does not have permission to a key press action");
         }
+
         return {
             hasCombination: false,
             hasAlt: false,

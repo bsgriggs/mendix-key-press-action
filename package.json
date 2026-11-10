@@ -1,7 +1,7 @@
 {
   "name": "keypressaction",
   "widgetName": "KeyPressAction",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Configure a mx action on specific key presses",
   "copyright": "Benjamin Griggs 2023",
   "author": "Benjamin Griggs",
@@ -25,11 +25,11 @@
     "release": "pluggable-widgets-tools release:web"
   },
   "devDependencies": {
-      "@mendix/pluggable-widgets-tools": "~10.21.1",
-      "@types/big.js": "^6.0.2"
+    "@mendix/pluggable-widgets-tools": "~10.21.1",
+    "@types/big.js": "^6.0.2"
   },
   "dependencies": {
-      "classnames": "^2.5.1"
+    "classnames": "^2.5.1"
   },
   "resolutions": {
     "react": "18.2.0",

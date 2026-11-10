@@ -37,7 +37,7 @@
                     </enumerationValues>
                 </property>
                 <property key="allowKeyHold" type="expression" defaultValue="false">
-                    <caption>Allow key holding</caption>
+                    <caption>Allow key holding?</caption>
                     <description>When true, holding the key will repeatedly fire the event. 
 When false, the event will only fire the first time the key is pressed down/up.</description>
                     <returnType type="Boolean" />
@@ -49,7 +49,9 @@ When false, the event will only fire the first time the key is pressed down/up.<
                         <propertyGroup caption="KeyEvent">
                             <property key="keyName" type="string" required="true">
                                 <caption>Key name</caption>
-                                <description>Qualified key name from https://www.w3.org/TR/uievents-key/#named-key-attribute-values</description>
+                                <description>Qualified key name from https://www.w3.org/TR/uievents-key/#named-key-attribute-values
+Note: for normal keys, use the LOWER CASE value e.g., "s" NOT "S"
+                                </description>
                             </property>
                             <property key="keyCombination" type="boolean" defaultValue="false">
                                 <caption>Key combination?</caption>
@@ -64,6 +66,11 @@ When false, the event will only fire the first time the key is pressed down/up.<
                                     <enumerationValue key="ALT">Alt</enumerationValue>
                                     <enumerationValue key="META">Meta (Command / Windows)</enumerationValue>
                                 </enumerationValues>
+                            </property>
+                            <property key="preventDefault" type="expression" defaultValue="false">
+                                <caption>Prevent Default?</caption>
+                                <description>Should this action ignore default browser functionality (e.g., CTRL + S already has browser functionality)</description>
+                                <returnType type="Boolean" />
                             </property>
                             <property key="keyAction" type="action" required="true">
                                 <caption>Key action</caption>

@@ -16,6 +16,7 @@ export interface WatchListType {
     keyName: string;
     keyCombination: boolean;
     secondaryKey: SecondaryKeyEnum;
+    preventDefault: DynamicValue<boolean>;
     keyAction?: ActionValue;
 }
 
@@ -23,6 +24,7 @@ export interface WatchListPreviewType {
     keyName: string;
     keyCombination: boolean;
     secondaryKey: SecondaryKeyEnum;
+    preventDefault: string;
     keyAction: {} | null;
 }
 
