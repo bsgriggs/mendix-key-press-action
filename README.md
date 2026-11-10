@@ -14,8 +14,8 @@ Configure an Mx Action on specific key presses. Useful for keyboard shortcuts an
 ## Usage
 ![general](https://github.com/bsgriggs/mendix-key-press-action/blob/media/general.png)  
 1. Add the widget to your page and determine whether you want to watch the whole document or only a specific section of your page. If you need to have your action use specific objects, then use Watch mode "Specific Content"
-![keyEvent](https://github.com/bsgriggs/mendix-key-press-action/blob/media/keyEvent.png)  
 2. Add a new item to the Key watch list
+![keyEvent](https://github.com/bsgriggs/mendix-key-press-action/blob/media/keyEvent.png)  
 3. Add the [qualified name of the key](https://www.w3.org/TR/uievents-key/#named-key-attribute-values) in the Key name
 4. If you need this key action to only run when multiple keys are pressed, enable key combination then select the secondary key to be watched
 5. Add a Microflow or Nanoflow to execute when the key is detected
